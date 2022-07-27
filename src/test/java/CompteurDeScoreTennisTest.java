@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class CompteurDeScoreTennisTest {
 	
 	@Test
-	public void createPartie_returnOk() {
+	public void createPartieCreateJoueur_returnOk() {
 		
 		//Given
 		Joueur joueur1 = new Joueur();
@@ -16,6 +16,25 @@ public class CompteurDeScoreTennisTest {
 		String result = CompteurDeScoreTennis.createPartie(joueur1,joueur2);
 		//Then
 		assertEquals("partie créée", result);
+		
+		
+	}
+	
+	@Test
+	public void createPartieScore_return0() {
+		
+		//Given
+		Score score = new Score();
+		score.setPointJoueur1(0);
+		score.setPointJoueur2(0);
+		score.setJeuJoueur1(0);
+		score.setJeuJoueur2(0);
+		score.setSetJoueur1(0);
+		score.setSetJoueur2(0);
+		//When
+		Integer result = CompteurDeScoreTennis.scoreDepart();
+		//Then
+		assertEquals(12, result);
 		
 		
 	}
