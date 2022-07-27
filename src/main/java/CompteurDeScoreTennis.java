@@ -1,4 +1,4 @@
-
+import java.util.Random;
 
 public class CompteurDeScoreTennis {
 	
@@ -22,9 +22,26 @@ public class CompteurDeScoreTennis {
 		Partie nouvellePartie = new Partie(joueur1, joueur2, score);
 		return nouvellePartie;
 	}
+
+	public Partie addPoints(Partie partieEnCours) {
+		int quiGagne = generer1ou0();
+		if (quiGagne == 0) {
+			partieEnCours.score.setPointJoueur1(15);
+		}
+		else {
+			partieEnCours.score.setPointJoueur2(15);
+		}
+		return partieEnCours;
+	}
+
+	//Fonction trouvée sur internet
+	public int generer1ou0() {
+		Random rand = new Random(); //instance of random class
+		int upperbound = 2;
+		return rand.nextInt(upperbound);
+	}
 	
-	
-	public Partie  play(Partie partie) {
+	public Partie play(Partie partie) {
 		partie.score.setPointJoueur1(15);
 		
 		return partie;
