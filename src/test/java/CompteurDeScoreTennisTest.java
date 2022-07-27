@@ -1,40 +1,59 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 
 public class CompteurDeScoreTennisTest {
 	
+	private CompteurDeScoreTennis compteur = new CompteurDeScoreTennis();
+	
 	@Test
 	public void createPartieCreateJoueur_returnOk() {
 		
 		//Given
-		Joueur joueur1 = new Joueur();
-		Joueur joueur2 = new Joueur();
-		joueur1.setNom("joanna");
-		joueur2.setNom("Stéphane");
+	
 		//When
-		String result = CompteurDeScoreTennis.createPartie(joueur1,joueur2);
+		Partie partie = this.compteur.createPartie();
 		//Then
-		assertEquals("partie créée", result);
-		
+		assertNotNull(partie);
+		assertInstanceOf(Partie.class, partie);
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Test
 	public void createPartieScore_return0() {
 		
 		//Given
-		Score score = new Score();
-		score.setPointJoueur1(0);
-		score.setPointJoueur2(0);
-		score.setJeuJoueur1(0);
-		score.setJeuJoueur2(0);
-		score.setSetJoueur1(0);
-		score.setSetJoueur2(0);
+		
 		//When
-		Integer result = CompteurDeScoreTennis.scoreDepart();
+		Integer joueur1Point = CompteurDeScoreTennis.scoreDepart().getPointJoueur1();
+		Integer joueur2Point = CompteurDeScoreTennis.scoreDepart().getPointJoueur2();
+		Integer joueur1Jeu = CompteurDeScoreTennis.scoreDepart().getJeuJoueur1();
+		Integer joueur2Jeu = CompteurDeScoreTennis.scoreDepart().getJeuJoueur2();
+		Integer joueur1Set = CompteurDeScoreTennis.scoreDepart().getSetJoueur1();
+		Integer joueur2Set = CompteurDeScoreTennis.scoreDepart().getSetJoueur2();
 		//Then
-		assertEquals(12, result);
+		assertEquals(0, joueur1Point);
+		assertEquals(0, joueur2Point);
+		assertEquals(0, joueur1Jeu);
+		assertEquals(0, joueur2Jeu);
+		assertEquals(0, joueur1Set);
+		assertEquals(0, joueur2Set);
+		
+
 		
 		
 	}

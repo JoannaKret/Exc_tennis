@@ -4,6 +4,7 @@ public class Partie {
 	Joueur joueur1;	
 	Joueur joueur2;	
 	Score score;
+	
 	public Partie() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -10,12 +10,20 @@ public class CompteurDeScoreTennis {
 		System.out.println( "Hello World");
 	}
 	
-	public static int scoreDepart() {
-		return 0;
+	public static Score scoreDepart() {
+		Score score = new Score();
+		score.setPointJoueur1(0);
+		score.setPointJoueur2(0);
+		score.setJeuJoueur1(0);
+		score.setJeuJoueur2(0);
+		score.setSetJoueur1(0);
+		score.setSetJoueur2(0);
+		return score;
 	}
 	
-	public static String createPartie(Joueur joueur1, Joueur joueur2) {
-		return "partie créée";
+	public Partie createPartie() {
+		
+		return new Partie();
 	}
 	
 	
