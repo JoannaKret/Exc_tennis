@@ -39,6 +39,7 @@ public class CompteurDeScoreTennis {
 					score1 = 0;
 					partieEnCours.score.setJeuJoueur1(1);
 					System.out.println("1 a gagné");
+					break;
 				}
 			} else {
 				if (score2 < 30) {
@@ -49,10 +50,11 @@ public class CompteurDeScoreTennis {
 					score2 = 0;
 					partieEnCours.score.setJeuJoueur2(1);
 					System.out.println("2 a gagné");
+					break;
 				}
 			}
-			System.out.println(score1);
-			System.out.println(score2);
+			System.out.println("Score de 1: " + score1);
+			System.out.println("Score de 2: " + score2);
 		}
 		partieEnCours.score.setPointJoueur1(score1);
 		partieEnCours.score.setPointJoueur2(score2);
