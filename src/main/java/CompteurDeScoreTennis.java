@@ -9,4 +9,13 @@ public class CompteurDeScoreTennis {
 	public static void hello() {
 		System.out.println( "Hello World");
 	}
+	
+	public static void createPartie() {
+		
+	}
+	
+	
+	public static void play() {
+		
+	}
 }
