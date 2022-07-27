@@ -3,15 +3,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CompteurDeScoreTennisTest {
-	
+
 	private CompteurDeScoreTennis compteur = new CompteurDeScoreTennis();
 	private Partie partie = this.compteur.createPartie();
-	
+
 	@Test
 	public void createPartieCreateJoueurInitialiseScore_returnOk() {
-		
+
 		//Given
-	
+
 		//When
 		Partie partie = this.compteur.createPartie();
 		//Then
@@ -21,7 +21,7 @@ public class CompteurDeScoreTennisTest {
 		assertEquals("Stephane", partie.getJoueur2().getNom());
 		assertEquals(0, partie.score.getPointJoueur1());
 	}
-	
+
 	@Test
 	public void ajoutePoint_returnOk() {
 		//Given
@@ -31,42 +31,6 @@ public class CompteurDeScoreTennisTest {
 		int sumOfPoints = partie.score.getPointJoueur1() + partie.score.getPointJoueur2();
 		assertNotEquals(0, sumOfPoints);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Test
-	public void createPartieScore_return0() {
-		
-		//Given
-		
-		//When
-		Integer joueur1Point = CompteurDeScoreTennis.scoreDepart().getPointJoueur1();
-		Integer joueur2Point = CompteurDeScoreTennis.scoreDepart().getPointJoueur2();
-		Integer joueur1Jeu = CompteurDeScoreTennis.scoreDepart().getJeuJoueur1();
-		Integer joueur2Jeu = CompteurDeScoreTennis.scoreDepart().getJeuJoueur2();
-		Integer joueur1Set = CompteurDeScoreTennis.scoreDepart().getSetJoueur1();
-		Integer joueur2Set = CompteurDeScoreTennis.scoreDepart().getSetJoueur2();
-		//Then
-		assertEquals(0, joueur1Point);
-		assertEquals(0, joueur2Point);
-		assertEquals(0, joueur1Jeu);
-		assertEquals(0, joueur2Jeu);
-		assertEquals(0, joueur1Set);
-		assertEquals(0, joueur2Set);
-		
 
-		
-		
-	}
-	
+
 }
