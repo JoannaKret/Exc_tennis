@@ -18,7 +18,9 @@ public class CompteurDeScoreTennisTest {
 		//Then
 		assertNotNull(partie);
 		assertInstanceOf(Partie.class, partie);
-		
+		assertEquals("Jojo", partie.getJoueur1().getNom());
+		assertEquals("Stephane", partie.getJoueur2().getNom());
+		assertEquals(0, partie.score.getPointJoueur1());
 	}
 	
 	

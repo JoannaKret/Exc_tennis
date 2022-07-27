@@ -11,19 +11,16 @@ public class CompteurDeScoreTennis {
 	}
 	
 	public static Score scoreDepart() {
-		Score score = new Score();
-		score.setPointJoueur1(0);
-		score.setPointJoueur2(0);
-		score.setJeuJoueur1(0);
-		score.setJeuJoueur2(0);
-		score.setSetJoueur1(0);
-		score.setSetJoueur2(0);
-		return score;
+		Score scoreA0 = new Score(0,0,0,0,0,0);
+		return scoreA0;
 	}
 	
 	public Partie createPartie() {
-		
-		return new Partie();
+		Joueur joueur1 = new Joueur("Jojo");
+		Joueur joueur2 = new Joueur("Stephane");
+		Score score = scoreDepart();
+		Partie nouvellePartie = new Partie(joueur1, joueur2, score);
+		return nouvellePartie;
 	}
 	
 	
