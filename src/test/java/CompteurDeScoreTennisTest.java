@@ -1,12 +1,11 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CompteurDeScoreTennisTest {
 	
 	private CompteurDeScoreTennis compteur = new CompteurDeScoreTennis();
+	private Partie partie = this.compteur.createPartie();
 	
 	@Test
 	public void createPartieCreateJoueurInitialiseScore_returnOk() {
@@ -25,7 +24,12 @@ public class CompteurDeScoreTennisTest {
 	
 	@Test
 	public void ajoutePoint_returnOk() {
-		
+		//Given
+		//When
+		compteur.addPoints(partie);
+		//Then
+		int sumOfPoints = partie.score.getPointJoueur1() + partie.score.getPointJoueur2();
+		assertNotEquals(0, sumOfPoints);
 	}
 	
 	
