@@ -3,7 +3,7 @@
 public class CompteurDeScoreTennis {
 	
 	public static void main(String[] args) {
-		hello();
+		
 	}
 	
 	public static void hello() {
@@ -24,7 +24,9 @@ public class CompteurDeScoreTennis {
 	}
 	
 	
-	public static void play() {
+	public Partie  play(Partie partie) {
+		partie.score.setPointJoueur1(15);
 		
+		return partie;
 	}
 }

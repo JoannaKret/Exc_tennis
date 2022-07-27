@@ -9,7 +9,7 @@ public class CompteurDeScoreTennisTest {
 	private CompteurDeScoreTennis compteur = new CompteurDeScoreTennis();
 	
 	@Test
-	public void createPartieCreateJoueur_returnOk() {
+	public void createPartieCreateJoueurInitialiseScore_returnOk() {
 		
 		//Given
 	
@@ -21,6 +21,11 @@ public class CompteurDeScoreTennisTest {
 		assertEquals("Jojo", partie.getJoueur1().getNom());
 		assertEquals("Stephane", partie.getJoueur2().getNom());
 		assertEquals(0, partie.score.getPointJoueur1());
+	}
+	
+	@Test
+	public void ajoutePoint_returnOk() {
+		
 	}
 	
 	
