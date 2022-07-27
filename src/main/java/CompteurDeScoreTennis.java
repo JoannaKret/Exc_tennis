@@ -10,8 +10,8 @@ public class CompteurDeScoreTennis {
 		System.out.println( "Hello World");
 	}
 	
-	public static void createPartie() {
-		
+	public static String createPartie(Joueur joueur1, Joueur joueur2) {
+		return "partie créée";
 	}
 	
 	
