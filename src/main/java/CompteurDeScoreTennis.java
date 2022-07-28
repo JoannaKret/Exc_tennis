@@ -5,16 +5,14 @@ public class CompteurDeScoreTennis {
 	boolean tieBreak = false;
 	
 	public Score scoreDepart() {
-		Score scoreA0 = new Score(0,0,0,0,0,0);
-		return scoreA0;
+		return new Score(0,0,0,0,0,0);
 	}
 	
 	public Partie createPartie() {
 		Joueur joueur1 = new Joueur("Jojo");
 		Joueur joueur2 = new Joueur("Stephane");
 		Score score = scoreDepart();
-		Partie nouvellePartie = new Partie(joueur1, joueur2, score);
-		return nouvellePartie;
+		return new Partie(joueur1, joueur2, score);
 	}
 
 	public Partie addPoints() {
@@ -87,7 +85,7 @@ public class CompteurDeScoreTennis {
 		return partieEnCours;
 	}
 
-	public void balbla() {
+	/*public void balbla() {
 
 		switch(partieEnCours.score.getPointJoueur1()) {
 		case 0:
@@ -110,11 +108,11 @@ public class CompteurDeScoreTennis {
 			break;
 		case 6:
 			partieEnCours.score.setSetJoueur1(partieEnCours.score.getSetJoueur1() + 1);
+
 			break;
-	}
+			}
+	}*/
 
-
-}
 
 
 	public void switchCase40_J1(Partie partieEnCours) {
@@ -152,6 +150,7 @@ public class CompteurDeScoreTennis {
 		} else {
 			System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
 			System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
+
 			switch  (partieEnCours.score.getJeuJoueur1()) {
 				case 0:
 					partieEnCours.score.setJeuJoueur1(1);
@@ -182,6 +181,8 @@ public class CompteurDeScoreTennis {
 					break;
 				
 			}
+
+			setJeuJouer1(partieEnCours);
 			System.out.println("1 a gagné");
 			partieEnCours.score.setPointJoueur1(0);
 			partieEnCours.score.setPointJoueur2(0);
@@ -223,7 +224,7 @@ public class CompteurDeScoreTennis {
 							partieEnCours.score.setJeuJoueur2(0);
 							partieEnCours.score.setJeuJoueur1(0);
 						} else {
-							System.out.println("partie gagn�e par joueur 2");
+							System.out.println("partie gagn�e par joueur 2");
 						}
 						break;
 						
@@ -234,11 +235,20 @@ public class CompteurDeScoreTennis {
 					break;
 			
 		}
+
+			setJeuJouer2(partieEnCours);
 			
 			System.out.println("2 a gagné");
 			partieEnCours.score.setPointJoueur1(0);
 			partieEnCours.score.setPointJoueur2(0);
 		}
+	}
+
+	public void setJeuJouer1(Partie partieEnCours) {
+
+	}
+
+	public void setJeuJouer2(Partie partieEnCours) {
 	}
 
 	//Fonction trouvée sur internet
