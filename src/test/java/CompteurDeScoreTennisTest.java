@@ -61,16 +61,4 @@ public class CompteurDeScoreTennisTest {
 
 
 
-//	@Test
-//		public void ajoutePoint_returnOk() {
-//		//Given
-//		//When
-//		compteur.addPoints(partie);
-//		//Then
-//		int sumOfPoints = partie.score.getPointJoueur1() + partie.score.getPointJoueur2();
-//		assertNotEquals(0, sumOfPoints);
-//	}
-
-
-
 }

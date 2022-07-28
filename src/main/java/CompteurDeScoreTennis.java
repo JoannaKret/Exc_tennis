@@ -17,7 +17,7 @@ public class CompteurDeScoreTennis {
 
 	public Partie addPoints() {
 		Partie partieEnCours = createPartie();
-		while(partieEnCours.score.getJeuJoueur1() != 1 && partieEnCours.score.getJeuJoueur2() != 1) {
+		while(partieEnCours.score.getJeuJoueur1() != 5 && partieEnCours.score.getJeuJoueur2() != 5) {
 			int quiGagne = generer1ou0();
 			if (quiGagne == 0) {
 				switch(partieEnCours.score.getPointJoueur1()) {
@@ -40,8 +40,7 @@ public class CompteurDeScoreTennis {
 					default:
 						break;
 				}
-				
-				
+
 			} else {
 				switch(partieEnCours.score.getPointJoueur2()) {
 					case 0:
@@ -74,6 +73,11 @@ public class CompteurDeScoreTennis {
 		partieEnCours.score.setPointJoueur2(partieEnCours.score.getPointJoueur2());
 		return partieEnCours;
 	}
+
+//	public Partie addJeux() {
+//		Partie partieApresJeu = addPoints();
+//
+//	}
 
 	public void switchCase40_J1(Partie partieEnCours) {
 		switch (partieEnCours.score.getPointJoueur2()) {
