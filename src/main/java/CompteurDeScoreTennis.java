@@ -2,22 +2,22 @@ import java.util.Random;
 
 public class CompteurDeScoreTennis {
 	
-	public static void main(String[] args) {
-		Partie partieEnCours = createPartie();
-		addPoints(partieEnCours);
-
-	}
+//	public void main(String[] args) {
+//		Partie partieEnCours = createPartie();
+//		addPoints(partieEnCours);
+//
+//	}
 	
 	public static void hello() {
 		System.out.println( "Hello World");
 	}
 	
-	public static Score scoreDepart() {
+	public Score scoreDepart() {
 		Score scoreA0 = new Score(0,0,0,0,0,0);
 		return scoreA0;
 	}
 	
-	public static Partie createPartie() {
+	public Partie createPartie() {
 		Joueur joueur1 = new Joueur("Jojo");
 		Joueur joueur2 = new Joueur("Stephane");
 		Score score = scoreDepart();
@@ -25,7 +25,7 @@ public class CompteurDeScoreTennis {
 		return nouvellePartie;
 	}
 
-	public static Partie addPoints(Partie partieEnCours) {
+	public Partie addPoints(Partie partieEnCours) {
 		int score1 = partieEnCours.score.getPointJoueur1();
 		int score2 = partieEnCours.score.getPointJoueur2();
 		while(partieEnCours.score.getJeuJoueur1() < 1 || partieEnCours.score.getJeuJoueur2() < 1) {
@@ -61,13 +61,18 @@ public class CompteurDeScoreTennis {
 		return partieEnCours;
 	}
 
-	public static int calculerPointsInf30(int points) {
+	public int calculerPointsInf30(int points) {
 		points += 15;
+		return points;
+	}
+	
+	public int calculerPointsSup30(int points) {
+		points += 10;
 		return points;
 	}
 
 	//Fonction trouvée sur internet
-	public static int generer1ou0() {
+	public int generer1ou0() {
 		Random rand = new Random(); //instance of random class
 		int upperbound = 2;
 		return rand.nextInt(upperbound);
