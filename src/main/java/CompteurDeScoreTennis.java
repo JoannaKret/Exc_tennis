@@ -32,13 +32,24 @@ public class CompteurDeScoreTennis {
 						break;
 					case 40:
 						switchCase40_J1(partieEnCours);
-					case 50 :
 						System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
 						System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
-						partieEnCours.score.setJeuJoueur1(1);
-						System.out.println("1 a gagné");
-						partieEnCours.score.setPointJoueur1(0);
-						partieEnCours.score.setPointJoueur2(0);
+					case 50 :
+						if (partieEnCours.score.getPointJoueur2() == 50) {
+							partieEnCours.score.setPointJoueur1(40);
+							partieEnCours.score.setPointJoueur2(40);
+							System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
+							System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
+						} else {
+							System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
+							System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
+							partieEnCours.score.setJeuJoueur1(1);
+							System.out.println("1 a gagné");
+							partieEnCours.score.setPointJoueur1(0);
+							partieEnCours.score.setPointJoueur2(0);
+							
+						}
+
 						break;
 					default:
 						break;
@@ -58,13 +69,22 @@ public class CompteurDeScoreTennis {
 						break;
 					case 40:
 						switchCase40_J2(partieEnCours);
-					case 50 :
 						System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
 						System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
-						partieEnCours.score.setJeuJoueur2(1);
-						System.out.println("2 a gagné");
-						partieEnCours.score.setPointJoueur1(0);
-						partieEnCours.score.setPointJoueur2(0);
+					case 50 :
+						if (partieEnCours.score.getPointJoueur1() == 50) {
+							partieEnCours.score.setPointJoueur1(40);
+							partieEnCours.score.setPointJoueur2(40);
+							System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
+							System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
+						} else {
+							System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
+							System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
+							partieEnCours.score.setJeuJoueur2(1);
+							System.out.println("2 a gagné");
+							partieEnCours.score.setPointJoueur1(0);
+							partieEnCours.score.setPointJoueur2(0);
+						}
 						break;
 					default:
 						break;
