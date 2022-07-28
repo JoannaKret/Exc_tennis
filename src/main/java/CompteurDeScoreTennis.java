@@ -114,7 +114,26 @@ public class CompteurDeScoreTennis {
 		} else {
 			System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
 			System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
-			partieEnCours.score.setJeuJoueur1(1);
+			switch  (partieEnCours.score.getJeuJoueur1()) {
+				case 0:
+					partieEnCours.score.setJeuJoueur1(1);
+					break;
+				case 1:
+					partieEnCours.score.setJeuJoueur1(2);
+					break;
+				case 2:
+					partieEnCours.score.setJeuJoueur1(3);
+					break;
+				case 3:
+					partieEnCours.score.setJeuJoueur1(4);
+					break;
+				case 4:
+					partieEnCours.score.setJeuJoueur1(5);
+					break;
+				default:
+					break;
+				
+			}
 			System.out.println("1 a gagné");
 			partieEnCours.score.setPointJoueur1(0);
 			partieEnCours.score.setPointJoueur2(0);
@@ -130,7 +149,27 @@ public class CompteurDeScoreTennis {
 		} else {
 			System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
 			System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
-			partieEnCours.score.setJeuJoueur2(1);
+			switch  (partieEnCours.score.getJeuJoueur2()) {
+				case 0:
+					partieEnCours.score.setJeuJoueur2(1);
+					break;
+				case 1:
+					partieEnCours.score.setJeuJoueur2(2);
+					break;
+				case 2:
+					partieEnCours.score.setJeuJoueur2(3);
+					break;
+				case 3:
+					partieEnCours.score.setJeuJoueur2(4);
+					break;
+				case 4:
+					partieEnCours.score.setJeuJoueur2(5);
+					break;
+				default:
+					break;
+			
+		}
+			
 			System.out.println("2 a gagné");
 			partieEnCours.score.setPointJoueur1(0);
 			partieEnCours.score.setPointJoueur2(0);
