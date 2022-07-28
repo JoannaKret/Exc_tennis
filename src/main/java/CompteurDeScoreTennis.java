@@ -21,6 +21,16 @@ public class CompteurDeScoreTennis {
 		while(partieEnCours.score.getJeuJoueur1() < 1 || partieEnCours.score.getJeuJoueur2() < 1) {
 			int quiGagne = generer1ou0();
 			if (quiGagne == 0) {
+				switch(score1) {
+					case 0:
+						score1 += 15;
+					case 15:
+						score1 += 15;
+					case 30:
+						score1 += 10;
+					case 40:
+
+				}
 				if (score1 < 50) {
 					calculerPoints(score1);
 				}
