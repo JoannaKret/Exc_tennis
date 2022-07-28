@@ -85,33 +85,36 @@ public class CompteurDeScoreTennis {
 		return partieEnCours;
 	}
 
-	/*public void balbla() {
-
-		switch(partieEnCours.score.getPointJoueur1()) {
-		case 0:
-			partieEnCours.score.setPointJoueur1(1);
-			break;
-		case 1:
-			partieEnCours.score.setPointJoueur1(2);
-			break;
-		case 2:
-			partieEnCours.score.setPointJoueur1(3);
-			break;
-		case 3:
-			partieEnCours.score.setPointJoueur1(4);
-			break;
-		case 4:
-			partieEnCours.score.setPointJoueur1(5);
-			break;
-		case 5:
-			partieEnCours.score.setPointJoueur1(6);
-			break;
-		case 6:
-			partieEnCours.score.setSetJoueur1(partieEnCours.score.getSetJoueur1() + 1);
-
-			break;
+	public void comptePointTieBreak(Partie partieEnCours) {
+		int pointTieBreakJoueur1 = 0;
+		int pointTieBreakJoueur2 = 0;
+		while(pointTieBreakJoueur1 != 7) {
+			switch (pointTieBreakJoueur1) {
+				case 0:
+					pointTieBreakJoueur1 = 1;
+					break;
+				case 1:
+					pointTieBreakJoueur1 = 2;
+					break;
+				case 2:
+					pointTieBreakJoueur1 = 3;
+					break;
+				case 3:
+					pointTieBreakJoueur1 = 4;
+					break;
+				case 4:
+					pointTieBreakJoueur1 = 5;
+					break;
+				case 5:
+					pointTieBreakJoueur1 = 6;
+					break;
+				case 6:
+					partieEnCours.score.setSetJoueur1(partieEnCours.score.getSetJoueur1() + 1);
+					tieBreak = false;
+					break;
 			}
-	}*/
+		}
+	}
 
 
 
@@ -169,12 +172,14 @@ public class CompteurDeScoreTennis {
 					break;
 				case 5:
 					partieEnCours.score.setJeuJoueur1(6);
-					if (partieEnCours.score.getJeuJoueur2() != 6) {
+					if (partieEnCours.score.getJeuJoueur2() != 5 || partieEnCours.score.getJeuJoueur2() != 6 ) {
 						partieEnCours.score.setSetJoueur1(partieEnCours.score.getSetJoueur1() + 1);
 						partieEnCours.score.setJeuJoueur1(0);
 						partieEnCours.score.setJeuJoueur2(0);						
 					} else {
 						tieBreak = true;
+						System.out.println("C'est le tie-break");
+						comptePointTieBreak(partieEnCours);
 					}
 					break;
 				default:
