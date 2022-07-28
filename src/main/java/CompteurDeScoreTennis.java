@@ -2,16 +2,6 @@ import java.util.Random;
 
 public class CompteurDeScoreTennis {
 	
-//	public void main(String[] args) {
-//		Partie partieEnCours = createPartie();
-//		addPoints(partieEnCours);
-//
-//	}
-	
-	public static void hello() {
-		System.out.println( "Hello World");
-	}
-	
 	public Score scoreDepart() {
 		Score scoreA0 = new Score(0,0,0,0,0,0);
 		return scoreA0;
@@ -31,22 +21,23 @@ public class CompteurDeScoreTennis {
 		while(partieEnCours.score.getJeuJoueur1() < 1 || partieEnCours.score.getJeuJoueur2() < 1) {
 			int quiGagne = generer1ou0();
 			if (quiGagne == 0) {
-				if (score1 < 30) {
-					calculerPointsInf30(score1);
-				} else if (score1 < 50) {
-					score1 += 10;
-				} else {
-					score1 = 0;
-					partieEnCours.score.setJeuJoueur1(1);
-					System.out.println("1 a gagné");
-					break;
+				if (score1 < 50) {
+					calculerPoints(score1);
+				}
+				else {
+					annulerAvantage(score1, score2);
+					else {
+						score1 = 0;
+						partieEnCours.score.setJeuJoueur1(1);
+						System.out.println("1 a gagné");
+						break;
+					}
 				}
 			} else {
-				if (score2 < 30) {
-					calculerPointsInf30(score2);
-				} else if (score2 < 50) {
-					score2 += 10;
-				} else {
+				if (score2 < 50) {
+					calculerPoints(score2);
+				}
+				else {
 					score2 = 0;
 					partieEnCours.score.setJeuJoueur2(1);
 					System.out.println("2 a gagné");
@@ -61,13 +52,20 @@ public class CompteurDeScoreTennis {
 		return partieEnCours;
 	}
 
-	public int calculerPointsInf30(int points) {
-		points += 15;
-		return points;
+	public int annulerAvantage(int pointsInf, int pointsSup) {
+		if (pointsInf == 40 && pointsSup == 50) {
+			pointsSup = 40;
+		}
+		return pointsSup;
 	}
-	
-	public int calculerPointsSup30(int points) {
-		points += 10;
+
+	public int calculerPoints(int points) {
+		if(points < 30) {
+			points += 15;
+			}
+		else if (points < 50) {
+			points += 10;
+		}
 		return points;
 	}
 
