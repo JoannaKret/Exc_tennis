@@ -17,38 +17,28 @@ public class CompteurDeScoreTennis {
 
 	public Partie addPoints() {
 		Partie partieEnCours = createPartie();
-		int score1 = partieEnCours.score.getPointJoueur1();
-		int score2 = partieEnCours.score.getPointJoueur2();
 		while(partieEnCours.score.getJeuJoueur1() != 1 && partieEnCours.score.getJeuJoueur2() != 1) {
 			int quiGagne = generer1ou0();
 			if (quiGagne == 0) {
-				switch(score1) {
+				switch(partieEnCours.score.getPointJoueur1()) {
 					case 0:
-						score1 += 15;
+						partieEnCours.score.setPointJoueur1(15);
 						break;
 					case 15:
-						score1 += 15;
+						partieEnCours.score.setPointJoueur1(30);
 						break;
 					case 30:
-						score1 += 10;
+						partieEnCours.score.setPointJoueur1(40);
 						break;
 					case 40:
-						switch (score2) {
-							case 40: 
-								score1 = 50;
-								break;
-							case 50:
-								score2 = 40;
-								break;
-							default:
-								
-								break;
-						}
+						switchCase40_J1(partieEnCours);
 					case 50 :
+						System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
+						System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
 						partieEnCours.score.setJeuJoueur1(1);
 						System.out.println("1 a gagné");
-						score1 = 0;
-						score2 = 0;
+						partieEnCours.score.setPointJoueur1(0);
+						partieEnCours.score.setPointJoueur2(0);
 						break;
 					default:
 						break;
@@ -56,48 +46,65 @@ public class CompteurDeScoreTennis {
 				
 				
 			} else {
-				switch(score2) {
+				switch(partieEnCours.score.getPointJoueur2()) {
 					case 0:
-						score2 += 15;
+						partieEnCours.score.setPointJoueur2(15);
 						break;
 					case 15:
-						score2 += 15;
+						partieEnCours.score.setPointJoueur2(30);
 						break;
 					case 30:
-						score2 += 10;
+						partieEnCours.score.setPointJoueur2(40);
 						break;
 					case 40:
-						switch (score1) {
-						case 40: 
-							score2 = 50;
-							break;
-						case 50:
-							score1 = 40;
-							break;
-						default:
-						
-							break;
-					}
+						switchCase40_J2(partieEnCours);
 					case 50 :
-
+						System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
+						System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
 						partieEnCours.score.setJeuJoueur2(1);
 						System.out.println("2 a gagné");
-						score2 = 0;
-						score1 = 0;
+						partieEnCours.score.setPointJoueur1(0);
+						partieEnCours.score.setPointJoueur2(0);
 						break;
 					default:
 						break;
 				}
 				
 			}
-			System.out.println("Score de 1: " + score1);
-			System.out.println("Score de 2: " + score2);
+			System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
+			System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
 			System.out.println("Jeu de 1: " + partieEnCours.score.getJeuJoueur1());
 			System.out.println("Jeu de 2: " + partieEnCours.score.getJeuJoueur2());
 		}
-		partieEnCours.score.setPointJoueur1(score1);
-		partieEnCours.score.setPointJoueur2(score2);
+		partieEnCours.score.setPointJoueur1(partieEnCours.score.getPointJoueur1());
+		partieEnCours.score.setPointJoueur2(partieEnCours.score.getPointJoueur2());
 		return partieEnCours;
+	}
+
+	public void switchCase40_J1(Partie partieEnCours) {
+		switch (partieEnCours.score.getPointJoueur2()) {
+			case 40:
+				partieEnCours.score.setPointJoueur1(50);
+				break;
+			case 50:
+				partieEnCours.score.setPointJoueur2(40);
+				break;
+			default:
+				break;
+		}
+	}
+
+	public void switchCase40_J2(Partie partieEnCours) {
+		switch (partieEnCours.score.getPointJoueur1()) {
+			case 40:
+				partieEnCours.score.setPointJoueur2(50);
+				break;
+			case 50:
+				partieEnCours.score.setPointJoueur1(40);
+				break;
+			default:
+				break;
+		}
 	}
 
 	public int annulerAvantage(int pointsInf, int pointsSup) {

@@ -22,15 +22,15 @@ public class CompteurDeScoreTennisTest {
 		assertEquals(0, partie.score.getPointJoueur1());
 	}
 
-	@Test
-		public void ajoutePoint_returnOk() {
-		//Given
-		//When
-		compteur.addPoints(partie);
-		//Then
-		int sumOfPoints = partie.score.getPointJoueur1() + partie.score.getPointJoueur2();
-		assertNotEquals(0, sumOfPoints);
-	}
+//	@Test
+//		public void ajoutePoint_returnOk() {
+//		//Given
+//		//When
+//		compteur.addPoints(partie);
+//		//Then
+//		int sumOfPoints = partie.score.getPointJoueur1() + partie.score.getPointJoueur2();
+//		assertNotEquals(0, sumOfPoints);
+//	}
 	
 	@Test 
 	public void calculerPoints_returnPlus15() {
