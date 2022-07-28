@@ -22,6 +22,45 @@ public class CompteurDeScoreTennisTest {
 		assertEquals(0, partie.score.getPointJoueur1());
 	}
 
+	@Test
+	public void switchCase40J1_returnOkIfJ2has50() {
+		//Given
+		Partie partie = this.compteur.createPartie();
+		partie.score.setPointJoueur1(40);
+		partie.score.setPointJoueur2(50);
+		//When
+		this.compteur.switchCase40_J1(partie);
+		//Then
+		assertEquals(40, partie.score.getPointJoueur2());
+	}
+
+	@Test
+	public void switchCase40J1_returnOkIfJ2has40() {
+		//Given
+		Partie partie = this.compteur.createPartie();
+		partie.score.setPointJoueur1(40);
+		partie.score.setPointJoueur2(40);
+		//When
+		this.compteur.switchCase40_J1(partie);
+		//Then
+		assertEquals(50, partie.score.getPointJoueur1());
+	}
+
+	@Test
+	public void switchCase50J1_returnOkIfBoth40() {
+		//Given
+		Partie partie = this.compteur.createPartie();
+		partie.score.setPointJoueur1(50);
+		partie.score.setPointJoueur2(50);
+		//When
+		this.compteur.switchCase50_J1(partie);
+		//Then
+		assertEquals(40, partie.score.getPointJoueur1());
+		assertEquals(40, partie.score.getPointJoueur2());
+	}
+
+
+
 //	@Test
 //		public void ajoutePoint_returnOk() {
 //		//Given
@@ -31,20 +70,7 @@ public class CompteurDeScoreTennisTest {
 //		int sumOfPoints = partie.score.getPointJoueur1() + partie.score.getPointJoueur2();
 //		assertNotEquals(0, sumOfPoints);
 //	}
-	
-	@Test 
-	public void calculerPoints_returnPlus15() {
-		int points = 15;
-		int score = compteur.calculerPoints(points);
-		assertEquals(30, score);
-	}
-	
-	@Test 
-	public void calculerPoints_returnPlus10() {
-		int points = 30;
-		int score = compteur.calculerPoints(points);
-		assertEquals(40, score);
-	}
+
 
 
 }

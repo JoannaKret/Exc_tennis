@@ -35,21 +35,7 @@ public class CompteurDeScoreTennis {
 						System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
 						System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
 					case 50 :
-						if (partieEnCours.score.getPointJoueur2() == 50) {
-							partieEnCours.score.setPointJoueur1(40);
-							partieEnCours.score.setPointJoueur2(40);
-							System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
-							System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
-						} else {
-							System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
-							System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
-							partieEnCours.score.setJeuJoueur1(1);
-							System.out.println("1 a gagné");
-							partieEnCours.score.setPointJoueur1(0);
-							partieEnCours.score.setPointJoueur2(0);
-							
-						}
-
+						switchCase50_J1(partieEnCours);
 						break;
 					default:
 						break;
@@ -72,19 +58,7 @@ public class CompteurDeScoreTennis {
 						System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
 						System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
 					case 50 :
-						if (partieEnCours.score.getPointJoueur1() == 50) {
-							partieEnCours.score.setPointJoueur1(40);
-							partieEnCours.score.setPointJoueur2(40);
-							System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
-							System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
-						} else {
-							System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
-							System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
-							partieEnCours.score.setJeuJoueur2(1);
-							System.out.println("2 a gagné");
-							partieEnCours.score.setPointJoueur1(0);
-							partieEnCours.score.setPointJoueur2(0);
-						}
+						switchCase50_J2(partieEnCours);
 						break;
 					default:
 						break;
@@ -127,21 +101,36 @@ public class CompteurDeScoreTennis {
 		}
 	}
 
-	public int annulerAvantage(int pointsInf, int pointsSup) {
-		if (pointsInf == 40 && pointsSup == 50) {
-			pointsSup = 40;
+	public void switchCase50_J1(Partie partieEnCours) {
+		if (partieEnCours.score.getPointJoueur2() == 50) {
+			partieEnCours.score.setPointJoueur1(40);
+			partieEnCours.score.setPointJoueur2(40);
+			System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
+			System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
+		} else {
+			System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
+			System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
+			partieEnCours.score.setJeuJoueur1(1);
+			System.out.println("1 a gagné");
+			partieEnCours.score.setPointJoueur1(0);
+			partieEnCours.score.setPointJoueur2(0);
 		}
-		return pointsSup;
 	}
 
-	public int calculerPoints(int points) {
-		if(points < 30) {
-			points += 15;
-			}
-		else if (points < 50) {
-			points += 10;
+	public void switchCase50_J2(Partie partieEnCours) {
+		if (partieEnCours.score.getPointJoueur1() == 50) {
+			partieEnCours.score.setPointJoueur1(40);
+			partieEnCours.score.setPointJoueur2(40);
+			System.out.println("Score de 1: " + partieEnCours.score.getPointJoueur1());
+			System.out.println("Score de 2: " + partieEnCours.score.getPointJoueur2());
+		} else {
+			System.out.println("Score de 1 gagne avantage: " + partieEnCours.score.getPointJoueur1());
+			System.out.println("Score de 2 gagne avantage: " + partieEnCours.score.getPointJoueur2());
+			partieEnCours.score.setJeuJoueur2(1);
+			System.out.println("2 a gagné");
+			partieEnCours.score.setPointJoueur1(0);
+			partieEnCours.score.setPointJoueur2(0);
 		}
-		return points;
 	}
 
 	//Fonction trouvée sur internet
@@ -151,9 +140,5 @@ public class CompteurDeScoreTennis {
 		return rand.nextInt(upperbound);
 	}
 	
-	public Partie play(Partie partie) {
-		partie.score.setPointJoueur1(15);
-		
-		return partie;
-	}
+
 }
