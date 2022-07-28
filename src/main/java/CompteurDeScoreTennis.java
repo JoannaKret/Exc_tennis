@@ -32,7 +32,7 @@ public class CompteurDeScoreTennis {
 			int quiGagne = generer1ou0();
 			if (quiGagne == 0) {
 				if (score1 < 30) {
-					score1 += 15;
+					calculerPointsInf30(score1);
 				} else if (score1 < 50) {
 					score1 += 10;
 				} else {
@@ -43,7 +43,7 @@ public class CompteurDeScoreTennis {
 				}
 			} else {
 				if (score2 < 30) {
-					score2 += 15;
+					calculerPointsInf30(score2);
 				} else if (score2 < 50) {
 					score2 += 10;
 				} else {
@@ -59,6 +59,11 @@ public class CompteurDeScoreTennis {
 		partieEnCours.score.setPointJoueur1(score1);
 		partieEnCours.score.setPointJoueur2(score2);
 		return partieEnCours;
+	}
+
+	public static int calculerPointsInf30(int points) {
+		points += 15;
+		return points;
 	}
 
 	//Fonction trouvée sur internet
