@@ -15,10 +15,11 @@ public class CompteurDeScoreTennis {
 		return nouvellePartie;
 	}
 
-	public Partie addPoints(Partie partieEnCours) {
+	public Partie addPoints() {
+		Partie partieEnCours = createPartie();
 		int score1 = partieEnCours.score.getPointJoueur1();
 		int score2 = partieEnCours.score.getPointJoueur2();
-		while(partieEnCours.score.getJeuJoueur1() < 1 || partieEnCours.score.getJeuJoueur2() < 1) {
+		while(partieEnCours.score.getJeuJoueur1() != 1 && partieEnCours.score.getJeuJoueur2() != 1) {
 			int quiGagne = generer1ou0();
 			if (quiGagne == 0) {
 				switch(score1) {
@@ -35,18 +36,24 @@ public class CompteurDeScoreTennis {
 						switch (score2) {
 							case 40: 
 								score1 = 50;
+								break;
 							case 50:
 								score2 = 40;
 								break;
 							default:
-								score1 = 0;
-								partieEnCours.score.setJeuJoueur1(1);
-								System.out.println("1 a gagné");
+								
 								break;
 						}
+					case 50 :
+						partieEnCours.score.setJeuJoueur1(1);
+						System.out.println("1 a gagné");
+						score1 = 0;
+						score2 = 0;
+						break;
 					default:
 						break;
 				}
+				
 				
 			} else {
 				switch(score2) {
@@ -63,21 +70,30 @@ public class CompteurDeScoreTennis {
 						switch (score1) {
 						case 40: 
 							score2 = 50;
+							break;
 						case 50:
 							score1 = 40;
 							break;
 						default:
-							score2 = 0;
-							partieEnCours.score.setJeuJoueur2(1);
-							System.out.println("2 a gagné");
+						
 							break;
 					}
+					case 50 :
+
+						partieEnCours.score.setJeuJoueur2(1);
+						System.out.println("2 a gagné");
+						score2 = 0;
+						score1 = 0;
+						break;
 					default:
 						break;
 				}
+				
 			}
 			System.out.println("Score de 1: " + score1);
 			System.out.println("Score de 2: " + score2);
+			System.out.println("Jeu de 1: " + partieEnCours.score.getJeuJoueur1());
+			System.out.println("Jeu de 2: " + partieEnCours.score.getJeuJoueur2());
 		}
 		partieEnCours.score.setPointJoueur1(score1);
 		partieEnCours.score.setPointJoueur2(score2);
