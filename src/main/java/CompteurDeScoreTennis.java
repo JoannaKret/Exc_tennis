@@ -24,34 +24,56 @@ public class CompteurDeScoreTennis {
 				switch(score1) {
 					case 0:
 						score1 += 15;
+						break;
 					case 15:
 						score1 += 15;
+						break;
 					case 30:
 						score1 += 10;
-					case 40:
-
-				}
-				if (score1 < 50) {
-					calculerPoints(score1);
-				}
-				else {
-					annulerAvantage(score1, score2);
-					else {
-						score1 = 0;
-						partieEnCours.score.setJeuJoueur1(1);
-						System.out.println("1 a gagné");
 						break;
-					}
+					case 40:
+						switch (score2) {
+							case 40: 
+								score1 = 50;
+							case 50:
+								score2 = 40;
+								break;
+							default:
+								score1 = 0;
+								partieEnCours.score.setJeuJoueur1(1);
+								System.out.println("1 a gagné");
+								break;
+						}
+					default:
+						break;
 				}
+				
 			} else {
-				if (score2 < 50) {
-					calculerPoints(score2);
-				}
-				else {
-					score2 = 0;
-					partieEnCours.score.setJeuJoueur2(1);
-					System.out.println("2 a gagné");
-					break;
+				switch(score2) {
+					case 0:
+						score2 += 15;
+						break;
+					case 15:
+						score2 += 15;
+						break;
+					case 30:
+						score2 += 10;
+						break;
+					case 40:
+						switch (score1) {
+						case 40: 
+							score2 = 50;
+						case 50:
+							score1 = 40;
+							break;
+						default:
+							score2 = 0;
+							partieEnCours.score.setJeuJoueur2(1);
+							System.out.println("2 a gagné");
+							break;
+					}
+					default:
+						break;
 				}
 			}
 			System.out.println("Score de 1: " + score1);
